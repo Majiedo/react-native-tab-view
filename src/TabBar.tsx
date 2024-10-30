@@ -171,7 +171,9 @@ const normalizeScrollValue = <T extends Route>({
     scrollEnabled,
     flattenedTabWidth,
   });
-  return Math.max(Math.min(value, maxDistance), 0);
+  const maxDistance = getMaxScrollDistance(tabBarWidth, layout.width);
+  const scrollValue = Math.max(Math.min(value, maxDistance), 0);
+  return scrollValue;
 };
 
 const getScrollAmount = <T extends Route>({
