@@ -171,16 +171,7 @@ const normalizeScrollValue = <T extends Route>({
     scrollEnabled,
     flattenedTabWidth,
   });
-  const maxDistance = getMaxScrollDistance(tabBarWidth, layout.width);
-  const scrollValue = Math.max(Math.min(value, maxDistance), 0);
-
-  if (Platform.OS === 'android' && I18nManager.isRTL) {
-    // On Android, scroll value is not applied in reverse in RTL
-    // so we need to manually adjust it to apply correct value
-    return maxDistance - scrollValue;
-  }
-
-  return scrollValue;
+  return Math.max(Math.min(value, maxDistance), 0);
 };
 
 const getScrollAmount = <T extends Route>({
