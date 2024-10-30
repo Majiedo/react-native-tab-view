@@ -559,7 +559,7 @@ const styles = StyleSheet.create({
   },
   tabBar: {
     backgroundColor: '#2196f3',
-    elevation: 4,
+    elevation: Platform.OS === "ios" ? 4 : 0,
     shadowColor: 'black',
     shadowOpacity: 0.1,
     shadowRadius: StyleSheet.hairlineWidth,
