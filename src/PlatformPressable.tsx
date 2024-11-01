@@ -27,11 +27,6 @@ export default function PlatformPressable({
 }: Props) {
   return (
     <Pressable
-      android_ripple={
-        ANDROID_SUPPORTS_RIPPLE
-          ? { color: pressColor, ...android_ripple }
-          : undefined
-      }
       style={({ pressed }) => [
         { opacity: pressed && !ANDROID_SUPPORTS_RIPPLE ? pressOpacity : 1 },
         typeof style === 'function' ? style({ pressed }) : style,
